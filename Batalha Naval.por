@@ -66,28 +66,47 @@ programa
 					pare
 
 				caso 2:
-					// Lógica de compra (mantida)
+					limpa()
 					escreva("      BATALHA NAVAL .game\n\n")
-					escreva("Voce optou por comprar o Jogo\nValor do jogo R$: ", valor_jogo, "\n")
-					escreva("Digite o dinheiro recebido? ")
+					escreva("Valor do jogo R$: ", valor_jogo, "\n")
+					escreva("Digite o dinheiro recebido: ")
 					leia(dinheiro_recebido)
+
 					se (dinheiro_recebido >= valor_jogo) {
 						troco = (dinheiro_recebido - valor_jogo)
 						troco_arredondado = mat.arredondar(troco, 2)
 						total_vendas++
 						caixa = caixa + valor_jogo
-						escreva("\nJogo comprado com sucesso! Troco: ", troco_arredondado, "\n")
-					} senao { escreva("Dinheiro insuficiente!\n") }
+						
+						escreva("\nJogo comprado com sucesso!")
+						escreva("\nTroco: R$ ", troco_arredondado)
+					} senao { 
+						escreva("\n(-) Dinheiro insuficiente!") 
+					}
+					
+					escreva("\n\nPressione ENTER para voltar ao menu...")
+					leia(enter)
 					pare
 
 				caso 3:
+					limpa()
 					caixa_arredondado = mat.arredondar(caixa, 2)
-					escreva("\n===== TOTAL EM CAIXA =====\n\nCaixa: ", caixa_arredondado, " Reais\n")
+					escreva("\n===== RELATÓRIO FINANCEIRO =====\n")
+					escreva("\nTotal de vendas: ", total_vendas, " unidades")
+					escreva("\nSaldo em Caixa: R$ ", caixa_arredondado)
+					escreva("\n\nPressione ENTER para voltar ao menu...")
+					leia(enter)
 					pare
 
 				caso 4:
 					continuar = 0
+					escreva("\nSaindo do sistema... Até logo!\n")
+					u.aguarde(2000)
 					pare
+
+				caso contrario:
+					escreva("\nOpção Inválida!")
+					u.aguarde(1500)
 			}
 		}
 	}
@@ -235,7 +254,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 8705; 
+ * @POSICAO-CURSOR = 5226; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
