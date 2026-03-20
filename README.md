@@ -100,3 +100,11 @@ Sinta-se à vontade para:
 Melhorar o código
 Corrigir bugs
 Adicionar novas funcionalidades 
+
+Fluxogramas das funções:
+
+Menu inicial -> https://drive.google.com/file/d/1KcszKuuwr4D7KwMN3r16DkQhEMYj_oFz/view?usp=drive_link
+Jogar -> https://drive.google.com/file/d/1IsmsOC0DuZDrn6gwePfNiepcv1CCUiZ3/view?usp=drive_link
+Tiro do Jogador -> https://drive.google.com/file/d/11TUYUxNrrLZZFVnJQ0--ws6PfmfAWyzE/view?usp=drive_link
+Comprar jogo -> https://drive.google.com/file/d/1-LSCEoATwmjeky4Ys-hDooqzrcuNuWOL/view?usp=drive_link
+Relatório de vendas -> https://drive.google.com/file/d/1Vm67GLcYS4l7gReA5uPXxFhKVuWLzDAa/view?usp=drive_link
