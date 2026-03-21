@@ -30,7 +30,7 @@ programa
             escreva ("2 - COMPRAR JOGO\n")
             escreva ("3 - VALOR EM CAIXA\n")
             escreva ("4 - SAIR\n")
-            escreva ("\nESCOLHA UMA OPCAO\n")
+            escreva ("\nESCOLHA UMA OPÇÃO\n")
             leia(opcao)
 
             escreva ("\n\n~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~~^~^~^ \n\n")
@@ -41,12 +41,12 @@ programa
                     //----------------------------- LAYOUT DE REGRAS ORIGINAL ------------------
                     escreva ("    _____________________________________________________________________     \n")
                     escreva ("  /  |                                                                   |     \n")
-                    escreva (" |   |                            REGRA DO JOGO                          |.    \n")
+                    escreva (" |   |                           REGRAS DO JOGO                          |.    \n")
                     escreva ("  |_ |                            ----------------                       |.    \n")
-                    escreva ("     |  Batalha Naval: É um jogo de estrategia para dois jogadores onde  |.    \n")
+                    escreva ("     |  Batalha Naval: É um jogo de estrátegia para dois jogadores onde  |.    \n")
                     escreva ("     | o objetivo é afundar todos os navios do oponente, posicionados    |.    \n")
                     escreva ("     | secretamente no tabuleiro,  esse jogo vai usar um sorteio para    |.    \n")
-                    escreva ("     | para determinar a posicao do NÁVIO.                               |.    \n") 
+                    escreva ("     | para determinar a posicao do NAVIO.                               |.    \n") 
                     escreva ("     |                                                                   |.    \n")
                     escreva ("     |   Os jogadores alternam as jogadas disparando, usando linha e     |.    \n")  
                     escreva ("     | coluna  para determinar as coordenadas, marcando ACERTOU ou ÁGUA  |.    \n")
@@ -65,18 +65,18 @@ programa
                     escreva ("\n\n~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~~^~^~^ \n\n")
                     pare
 
-                caso 2:
+                caso 2:                                     //---------------------------------------------------------VENDA DO JOGO
                     limpa()
                     escreva("      BATALHA NAVAL .game\n\n")
                     escreva("Valor do jogo R$: ", valor_jogo, "\n")
                     escreva("Digite o dinheiro recebido: ")
                     leia(dinheiro_recebido)
 
-                    se (dinheiro_recebido >= valor_jogo) {
-                        troco = (dinheiro_recebido - valor_jogo)
-                        troco_arredondado = mat.arredondar(troco, 2)
-                        total_vendas++
-                        caixa = caixa + valor_jogo
+                    se (dinheiro_recebido >= valor_jogo) {                 //----------------------------------------VENDA SO ACONTECE SE DINHEIORO RECEBIDO FOR MAIOR OU IGUAL PRECO DO JOGO
+                        troco = (dinheiro_recebido - valor_jogo)           //-----------------------------------------TROCO SUBTRAI (VALOR RECEBIDO - VALOR JOGO)
+                        troco_arredondado = mat.arredondar(troco, 2)       //------------------------------------------USANDO A BIBLIOTACA MATEMATICA PARA ARRENDAR O TROCO 
+                        total_vendas++                                     //------------------------------------------ACUMULANDO O VALOR E QUANTIDADES DE VENDAS
+                        caixa = caixa + valor_jogo 
                         
                         escreva("\nJogo comprado com sucesso!")
                         escreva("\nTroco: R$ ", troco_arredondado)
@@ -90,7 +90,7 @@ programa
 
                 caso 3:
                     limpa()
-                    caixa_arredondado = mat.arredondar(caixa, 2)
+                    caixa_arredondado = mat.arredondar(caixa, 2)                //------------------------------------------USANDO A BIBLIOTACA MATEMATICA PARA ARRENDAR O CAIXA                                  
                     escreva("\n===== RELATÓRIO FINANCEIRO =====\n")
                     escreva("\nTotal de vendas: ", total_vendas, " unidades")
                     escreva("\nSaldo em Caixa: R$ ", caixa_arredondado)
@@ -111,7 +111,7 @@ programa
         }
     }
 
- //-----------------------------------------------------------
+ //-----------------------------------------------------------               //------------------------------------------------------FUNÇÃO JOGO
 funcao jogo()
 {
     inteiro navios_total
@@ -122,12 +122,12 @@ funcao jogo()
     escreva("Quantos navios deseja no tabuleiro? (1 a 16): ")
     leia(navios_total)
 
-    enquanto(navios_total < 1 ou navios_total > 16){
-        escreva("Valor inválido! Digite entre 1 e 16: ")
-        leia(navios_total)
+    enquanto(navios_total < 1 ou navios_total > 16){ 
+        escreva("Valor inválido! Digite entre 1 e 16: ")                  //----------------------------------- SE A QUANTIDADE DE NAVIO FOR MENOR QUE " 0 " OU MAIOR QUE " 16 " ELE INVALIDA
+        leia(navios_total) 
     }
-
-    // Inicializa os mapas com água
+ 
+    // Inicializa os mapas com água                                       //-----------------------------------------------------------O TABULEIRO INICIA VAZIO
     para(inteiro i = 0; i < 4; i++){
         para(inteiro j = 0; j < 4; j++){
             aliados[i][j] = "0"
@@ -135,23 +135,23 @@ funcao jogo()
         }
     }
 
-    // Distribui navios corretamente
-    gerar_navios(aliados, navios_total)
+    // Distribui navios corretamente                                        //----------------------------------------------------------- MODULARIÇÃO DA DISTRIBUIÇÃO DOS NAVIOS
+    gerar_navios(aliados, navios_total)                        
     gerar_navios(inimigos, navios_total)
 
     faca{
         limpa()
-        escreva("-- BATALHA NAVAL --\n\n")
+        escreva("-- BATALHA NAVAL --\n\n")                                    //-----------------------------------------------------------INICIO DO JOGO CHAMANDO AS FUNÇÕES MODULARIZADAS
 
-        mostrar_mapas(aliados, inimigos)
+        mostrar_mapas(aliados, inimigos)                                    //----------------------------------------------------------- MOSTRAR MAPA + QUANTIDADES DE NAVIOS
         navios_inimigos = contador_navios(inimigos)
-        navios_aliados = contador_navios(aliados)
+        navios_aliados = contador_navios(aliados)       
 
         escreva("\nNavios inimigos: ", navios_inimigos, " | Seus navios: ", navios_aliados, "\n\n")
 
         // TURNO DO JOGADOR
         escreva("SUA VEZ! Digite a LINHA (0 a 3): ")
-        leia(linha)
+        leia(linha)                                                         //-----------------------------------------------------------TURNO DO JOGADOR ESCOLHA LINHA E COLUNA
         escreva("Digite a COLUNA (0 a 3): ")
         leia(coluna)
 
@@ -159,20 +159,20 @@ funcao jogo()
         u.aguarde(1500)
 
         // TURNO DO INIMIGO
-        navios_inimigos = contador_navios(inimigos)
+        navios_inimigos = contador_navios(inimigos)                        //-----------------------------------------------------------SE (NAVIOS INIMIGOS FOR MAIOR QUE "0" ENTÃO É A VEZ DO INIMIGO)
         se (navios_inimigos > 0) {
-            contra_ataque_inimigo(aliados)
+            contra_ataque_inimigo(aliados)                                 //-----------------------------------------------------------(LOOP ENQUANTO (INIMIGO E ALIADOS FOREM MAIOR QUE ZERO REPETE)
             u.aguarde(2000)
         }
 
-        navios_aliados = contador_navios(aliados)
+        navios_aliados = contador_navios(aliados)                        
     }
-    enquanto(navios_inimigos > 0 e navios_aliados > 0)
+    enquanto(navios_inimigos > 0 e navios_aliados > 0)                    
 
     limpa()
-    se (navios_inimigos == 0) {
-         mensagem_ganhador()      
-        //escreva("PARABÉNS! Você afundou todos os navios inimigos!")
+    se (navios_inimigos == 0) {                                         
+         mensagem_ganhador()                                
+        //escreva("PARABÉNS! Você afundou todos os navios inimigos!")        //-----------------------------------------------------------MENSAGEM DE FIM DE JOGO + FUNÇÃO LIMPAR TELA E VOLTAR PARA O MENU
     } senao {
     	    mensagem_perdedor()
        // escreva("GAME OVER! O inimigo destruiu sua frota...")
@@ -185,9 +185,9 @@ funcao gerar_navios(cadeia mapa[][], inteiro quantidade){
     inteiro colocados = 0
     inteiro l, c
 
-    enquanto(colocados < quantidade){
-        l = u.sorteia(0,3)
-        c = u.sorteia(0,3)
+    enquanto(colocados < quantidade){                          //----------------------------------------                  A FUNÇÃO ENQUANTO DISTRIBUI OS NAVIOS ATE QUE A QUANTIDADE SEJA ATINGIDA
+        l = u.sorteia(0,3)                                    //-----------------------------------------------------------CRIAMOS UMA VARIÁVEL QUANTIDADE E BOTAMOS DENTRO DO ENQUANTO; ENQUANTO (COLOCADOS < QUANTIDADE ) 
+        c = u.sorteia(0,3)                                    //-----------------------------------------------------------ELE SORTEIO UMA POSÇÃO E ACRESCENTA UM NAVIO REPETINDO COM COLOCADOS ++ ATE A QUANTIDADE DESEJADA
 
         se(mapa[l][c] == "0"){
             mapa[l][c] = "1"
@@ -197,8 +197,8 @@ funcao gerar_navios(cadeia mapa[][], inteiro quantidade){
 }
 
 // Função para mostrar os mapas
-funcao mostrar_mapas(cadeia m_aliados[][], cadeia m_inimigos[][]){
-    escreva("-- SEU MAPA --\n")
+funcao mostrar_mapas(cadeia m_aliados[][], cadeia m_inimigos[][]){               //-----------------------------------------------------------MOSTRAR MAPA
+    escreva("-- SEU MAPA --\n")                                                  //-----------------------------------------------------------USANNDO O LOOP (PARA (INTEIRO i = 0; i<4; i++) PARA LINHA E COLUNA 
     para(inteiro i = 0; i < 4; i++){
         para(inteiro j = 0; j < 4; j++){
             escreva(m_aliados[i][j], " | ")
@@ -206,10 +206,11 @@ funcao mostrar_mapas(cadeia m_aliados[][], cadeia m_inimigos[][]){
         escreva("\n")
     }
 
-    escreva("\n-- MAPA INIMIGO (Radar) --\n")
+    escreva("\n-- MAPA INIMIGO (Radar) --\n")               //-----------------------------------------------------------      ??????????????????????????? //-----------------------------------------------------------
+    
     para(inteiro i = 0; i < 4; i++){
         para(inteiro j = 0; j < 4; j++){
-            se(m_inimigos[i][j] == "*" ou m_inimigos[i][j] == "A"){
+            se(m_inimigos[i][j] == "*" ou m_inimigos[i][j] == "A"){ 
                 escreva(m_inimigos[i][j], " | ")
             } senao {
                 escreva("~ | ")
@@ -219,27 +220,27 @@ funcao mostrar_mapas(cadeia m_aliados[][], cadeia m_inimigos[][]){
     }
 }
 
-funcao contra_ataque_inimigo(cadeia mapa_jogador[][])
-{
+funcao contra_ataque_inimigo(cadeia mapa_jogador[][])                                //----------------------------------------------------------CONTRA ATAQUE DECLARANDO A LINHA E COLUNA COMO VARIÁVEIS = 0 , UMA LOGICA DE =FALSO PARA TIRO
+{                                                                                   //--------------------------------------------------------- USANDO O SORTEIO PARA LINHA E PARA COLUNA DE (0, A 3)
     inteiro lin_ini = 0, col_ini = 0
     logico tiro_confirmado = falso
 
     escreva("\n--- TURNO DO INIMIGO --- \n")
     u.aguarde(1500)
 
-    enquanto (tiro_confirmado == falso) {
+    enquanto (tiro_confirmado == falso) {                                        //---------------------------------------------------------ENQUANTO TIRO = 0 REPETE A BATALHA 
         lin_ini = u.sorteia(0, 3)
         col_ini = u.sorteia(0, 3)
 
-        se (mapa_jogador[lin_ini][col_ini] == "0" ou mapa_jogador[lin_ini][col_ini] == "1") {
+        se (mapa_jogador[lin_ini][col_ini] == "0" ou mapa_jogador[lin_ini][col_ini] == "1") {         //----------------------------------------SE TIRO = 1 PONTO
             tiro_confirmado = verdadeiro 
         }
     }
 
     escreva("O inimigo disparou na posição: [", lin_ini, "][", col_ini, "]\n")
 
-    se (mapa_jogador[lin_ini][col_ini] == "1") {
-        escreva(" ALERTA! Um de seus navios foi atingido! \n")
+    se (mapa_jogador[lin_ini][col_ini] == "1") {                               //---------------------------------------------------------USANDO A LOGICA PARA COMPARA SE POSIÇÃO DO TIRO DO INIMIGO = 1 (NAVIO ALIADO)  == ATINGIDO 
+        escreva(" ALERTA! Um de seus navios foi atingido! \n")                 //---------------------------------------------------------SENAO TIRO CAIO NO MAR
         mapa_jogador[lin_ini][col_ini] = "*"
     } 
     senao {
@@ -248,7 +249,7 @@ funcao contra_ataque_inimigo(cadeia mapa_jogador[][])
     }
 }
 
-funcao inteiro contador_navios(cadeia mapa[][]){
+funcao inteiro contador_navios(cadeia mapa[][]){                          //-----------------------------------------------------------CONTADOR NAVIO        INICIANDO COM A VARIÁVEL (SOMA =0) INCLUINDO UM LAÇO (PARA) (SOMA++) E (REORNE SOMA) 
     inteiro soma = 0
     para(inteiro i = 0; i < 4; i++){
         para(inteiro j = 0; j < 4; j++){
@@ -258,7 +259,7 @@ funcao inteiro contador_navios(cadeia mapa[][]){
     retorne soma
 }
 
-funcao tiro(cadeia m_inimigos[][], inteiro l, inteiro c){
+funcao tiro(cadeia m_inimigos[][], inteiro l, inteiro c){                 //-----------------------------------------------------------TIRO
     se(l < 0 ou l > 3 ou c < 0 ou c > 3){
         escreva("\nCoordenada inválida!\n")
     }
