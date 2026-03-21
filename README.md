@@ -104,16 +104,21 @@ Adicionar novas funcionalidades
 Fluxogramas das funções:
 
 Menu inicial
+
 <img width="721" height="1113" alt="Fluxograma do menu inicial drawio" src="https://github.com/user-attachments/assets/bfde3ec6-e710-4bc2-8487-63fc338aa127" />
 
 Jogar
+
 <img width="699" height="1122" alt="Fluxograma Jogar drawio" src="https://github.com/user-attachments/assets/7c85e2c3-8506-4041-b8c5-82f2e299e19c" />
 
 Tiro do Jogador
+
 <img width="533" height="1093" alt="Fluxograma Tiro do jogador drawio" src="https://github.com/user-attachments/assets/95da845e-5e02-4c91-9953-70bddf3c9b7e" />
 
 Comprar jogo
+
 <img width="532" height="813" alt="Fluxograma Compra do Jogo drawio" src="https://github.com/user-attachments/assets/67543c0c-0441-4e53-bd94-f3d5300d8fe4" />
 
 Relatório de vendas
+
 <img width="186" height="512" alt="Fluxograma relatório de vendas drawio" src="https://github.com/user-attachments/assets/5e18e486-d317-47a3-89d3-33d256f1165f" />
