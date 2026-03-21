@@ -103,6 +103,9 @@ Adicionar novas funcionalidades
 
 Fluxogramas das funções:
 
+<img width="721" height="1113" alt="Fluxograma do menu inicial drawio" src="https://github.com/user-attachments/assets/bfde3ec6-e710-4bc2-8487-63fc338aa127" />
+
+
 Menu inicial -> https://drive.google.com/file/d/1KcszKuuwr4D7KwMN3r16DkQhEMYj_oFz/view?usp=drive_link
 Jogar -> https://drive.google.com/file/d/1IsmsOC0DuZDrn6gwePfNiepcv1CCUiZ3/view?usp=drive_link
 Tiro do Jogador -> https://drive.google.com/file/d/11TUYUxNrrLZZFVnJQ0--ws6PfmfAWyzE/view?usp=drive_link
