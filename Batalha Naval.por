@@ -185,7 +185,7 @@ funcao gerar_navios(cadeia mapa[][], inteiro quantidade){
     inteiro colocados = 0
     inteiro l, c
 
-    enquanto(colocados < quantidade){                          //----------------------------------------                  A FUNÇÃO ENQUANTO DISTRIBUI OS NAVIOS ATE QUE A QUANTIDADE SEJA ATINGIDA
+    enquanto(colocados <= quantidade){                        //----------------------------------------                  A FUNÇÃO ENQUANTO DISTRIBUI OS NAVIOS ATE QUE A QUANTIDADE SEJA ATINGIDA
         l = u.sorteia(0,3)                                    //-----------------------------------------------------------CRIAMOS UMA VARIÁVEL QUANTIDADE E BOTAMOS DENTRO DO ENQUANTO; ENQUANTO (COLOCADOS < QUANTIDADE ) 
         c = u.sorteia(0,3)                                    //-----------------------------------------------------------ELE SORTEIO UMA POSÇÃO E ACRESCENTA UM NAVIO REPETINDO COM COLOCADOS ++ ATE A QUANTIDADE DESEJADA
 
